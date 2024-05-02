@@ -39,7 +39,7 @@ export default function PokeLogin() {
       console.log('response success', result)
       alert('Login success')
       localStorage.setItem('token', result.token)
-      // navigate('/dashboard')
+      navigate('/Dashboard')
     } catch (error) {
       alert(error);
     }
@@ -51,8 +51,8 @@ export default function PokeLogin() {
         initialValues={initialValues}
         onSubmit={handleLogin}
         validationSchema={validationSchema}>
-        <div className="w-96 border border-red-500 border-4 rounded-xl bg-white">
-          <div className="bg-red-500 p-1 ">
+        <div className="w-96 border-1 rounded-b-lg bg-white shadow-2xl">
+          <div className="bg-red-500 p-1 rounded-t-lg">
             <img src={pngegg} alt="Pokemon Logo" />
           </div>
           <h1 className="mt-10 text-3xl font-mono">Login</h1>
