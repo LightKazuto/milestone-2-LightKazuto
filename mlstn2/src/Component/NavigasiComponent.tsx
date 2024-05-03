@@ -16,6 +16,10 @@ function toHome() {
   navigate('/Dashboard')
 }
 
+function toGame(){
+  navigate('/Games')
+}
+
 async function handleLogout(event: any) {
     event.preventDefault();
     const options = {
@@ -53,7 +57,7 @@ return (
     <div className="flex justify-center">
       <ul className="flex gap-20 justify-center ">
         
-        <li onClick={toHome} className="flex flex-col items-center justify-center w-28 border-b-8 border-gray-500 hover:bg-gray-500 transition duration-300 ease-in-out group cursor-pointer ">
+        <li onClick={toHome} className="flex flex-col items-center justify-center w-28 border-b-8 border-gray-500 hover:bg-gray-500 transition duration-300 ease-in-out group cursor-pointer 0">
           <img src={logoPika} alt="logo-pika-navbar" className="w-9 mt-3 group-hover:brightness-200" />
           <p className="mt3 text-lg font-medium group-hover:text-white">Home</p>
         </li>
@@ -63,7 +67,7 @@ return (
           <p className="mt-3 text-lg font-medium group-hover:text-white">Pokedex</p>
         </li>
 
-        <li className="flex flex-col items-center justify-center w-28 border-b-8 border-orange-500 hover:bg-orange-500 transition duration-300 ease-in-out group cursor-pointer">
+        <li onClick={toGame} className="flex flex-col items-center justify-center w-28 border-b-8 border-orange-500 hover:bg-orange-500 transition duration-300 ease-in-out group cursor-pointer">
           <img src={arrow} alt="logo-arrow-navbar" className="w-9 mt-3 group-hover:brightness-200" />
           <p className="mt-3 text-lg font-medium group-hover:text-white">Games</p>
         </li>

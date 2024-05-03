@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Formik, Form, Field} from "formik";
+import { Formik, Form, Field } from "formik";
 import PokeNavigasi from "../Component/NavigasiComponent";
 import background from "../Asset/background.jpg";
 
@@ -20,6 +20,10 @@ type Pokemon = {
   }[];
 };
 
+// type PokemonResult = {
+//   results: Pokemon[];
+// };
+
 const useDebouncedValue = (inputValue: string | null, delay: number) => {
   const [debouncedValue, setDebouncedValue] = useState(inputValue);
 
@@ -36,11 +40,33 @@ const useDebouncedValue = (inputValue: string | null, delay: number) => {
   return debouncedValue;
 };
 
-function PokemonInfo({ pokemon }: { pokemon: Pokemon }) {
+// function PokemonInfoGeneral({ pokemon }: { pokemon: Pokemon }) {
+//   return (
+//     <div className="flex flex-coloum gap-10 text-left ">
+//       <div className="mt-14">
+//         <h2 className="font-bold">Pokemon Info</h2>
+//         <p>ID: {pokemon.id}</p>
+//         <p>Name: {pokemon.name}</p>
+//       </div>
+//       <div className="mt-6">
+//         <h3 className="font-bold">Stats:</h3>
+//         <ul>
+//           {/* {pokemon.stats.map((stat, index) => (
+//             <li key={index}>
+//               {stat.stat.name}: {stat.base_stat}
+//             </li>
+//           ))} */}
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
+
+function PokemonInfoByName({ pokemon }: { pokemon: Pokemon }) {
   return (
     <div className="flex flex-row gap-10 text-left ">
       <div className="mt-14">
-      <h2 className="font-bold">Pokemon Info</h2>
+        <h2 className="font-bold">Pokemon Info</h2>
         <p>ID: {pokemon.id}</p>
         <p>Name: {pokemon.name}</p>
       </div>
@@ -62,14 +88,44 @@ function PokedexComponent() {
   const [search, setSearch] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [pokemonData, setPokemonData] = useState<Pokemon | null>(null);
+  // const [pokemonDatas, setPokemonDatas] = useState<PokemonResult | null>(null);
 
   const debouncedSearchTerm = useDebouncedValue(search, 500);
+
+  //=================
+  // useEffect(() => {
+  //   getAllPokemon();
+  // }, []);
+  //===============
 
   useEffect(() => {
     console.log("loading", loading);
   }, [loading]);
 
+  // =================
+  // const getAllPokemon = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const response = await fetch(`${URL}`);
+  //     const result = await response.json();
+
+  //     if (response.ok) {
+  //       setPokemonDatas(result);
+  //       setLoading(false);
+  //     } else throw new Error("get all pokemon data fail !");
+  //   } catch (error) {
+  //     console.error(error);
+  //     setLoading(false);
+  //   }
+  // };
+  // // ==================
+
+  // useEffect(() => {
+  //   console.log("pokemonDatas", pokemonDatas);
+  // }, [pokemonDatas]);
+
   const getPokemonDataByName = async (pokemonName: string) => {
+    
     try {
       setLoading(true);
       const response = await fetch(`${URL}/${pokemonName}`);
@@ -80,7 +136,7 @@ function PokedexComponent() {
         setLoading(false);
       } else throw new Error("get pokemon data by name failed!");
     } catch (error) {
-      console.error(error);
+      alert(error);
       setLoading(false);
     }
   };
@@ -99,7 +155,7 @@ function PokedexComponent() {
         backgroundRepeat: "no-repeat",
       }}>
       <PokeNavigasi />
-      <div className="flex justify-center items-center w-3/4 flex-col h-full bg-blue">
+      <div className="flex justify-center items-center w-full flex-col h-full bg-blue">
         <Formik
           initialValues={{ pokemonName: "" }}
           onSubmit={(values, { setSubmitting }) => {
@@ -123,7 +179,7 @@ function PokedexComponent() {
         {!loading && pokemonData && (
           <div className="flex flex-row-reverse align-center justify-center bg-white w-2/5 p-16 border border-8 border-blue-500 rounded-xl shadow-2xl">
             <div>
-              <PokemonInfo pokemon={pokemonData} />
+              <PokemonInfoByName pokemon={pokemonData} />
             </div>
             <div className="mr-10">
               <img
@@ -134,6 +190,31 @@ function PokedexComponent() {
             </div>
           </div>
         )}
+
+        {/* {!loading &&
+          pokemonDatas?.results &&
+          pokemonDatas?.results?.length > 0 &&
+          pokemonDatas?.results?.map((pokemon, index) => {
+            return (
+              <div>
+              <div
+                key={`pokemon-${index}`}
+                className="flex flex-row-reverse align-center justify-center bg-white w-2/5 p-16 border border-8 border-blue-500 rounded-xl shadow-2xl">
+                <div>
+                  <PokemonInfoGeneral pokemon={pokemon} />
+                </div>
+                <div className="mr-10">
+                  <img
+                    src={`${IMG_URL}${index + 1}.png`}
+                    alt={pokemon.name}
+                    className="w-60"
+                  />
+                </div>
+              </div>
+              </div>
+            );
+          })} */}
+
         {loading && (
           <div className="animate-spin w-16 mt-10">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

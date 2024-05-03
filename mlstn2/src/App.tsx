@@ -8,6 +8,7 @@ import PokeNewRegister from "./Pages/newRegister";
 import PrivateRoute from "./Component/PrivateRouteComponent";
 import DahsboardComponent from "./Pages/Dashboard";
 import PokedexComponent from "./Pages/PokeDex";
+import PokemonGames from "./Pages/Games";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<PrivateRoute />}>
           <Route path="Dashboard" element={<DahsboardComponent />} />
           <Route path="PokeDex" element={<PokedexComponent />} />
+          <Route path="Games" element={<PokemonGames/>} />
         </Route>
       </Routes>
     </div>
