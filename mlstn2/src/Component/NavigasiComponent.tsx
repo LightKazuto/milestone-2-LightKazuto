@@ -7,7 +7,6 @@ import { useState } from "react";
 
 export default function PokeNavigasi() {
 const navigate = useNavigate();
-const [activePage, setActivePage] = useState('home');
 
 function toPokedex() {
   navigate('/PokeDex')

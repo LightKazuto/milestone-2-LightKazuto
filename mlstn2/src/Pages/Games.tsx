@@ -1,6 +1,5 @@
 import background from "../Asset/background.jpg";
 import PokeNavigasi from "../Component/NavigasiComponent";
-import pokemonGba from "../Asset/pokemonGba.jpg"
 import pokemonSwitch from "../Asset/pokemonSwitch.png"
 import poke_game_switch from "../Asset/poke_game_switch.jpg"
 import pokemonSwitch2 from "../Asset/pokemonSwitch2.png"

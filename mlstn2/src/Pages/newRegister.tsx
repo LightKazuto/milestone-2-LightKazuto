@@ -7,7 +7,6 @@ import background from "../Asset/background.jpg";
 import starter1 from "../Asset/starter1.png";
 
 export default function PokeNewRegister() {
-  const [error, setError] = useState<string>("");
   const navigate = useNavigate();
 
   const initialValues = {

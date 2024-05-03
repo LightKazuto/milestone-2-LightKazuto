@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
 export default function PokeLogin() {
-  const [error, setError] = useState<string>("");
   const navigate = useNavigate();
 
   const initialValues = {
