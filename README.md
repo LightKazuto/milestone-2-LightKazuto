@@ -3,12 +3,16 @@
 ![Logo](./mlstn2/src/Asset/pngegg.png)
 
 # Hello, nice to see you again 👋
+
 Do not futher a do. on this web Iam builld pokemon web for intruduce what is pokemon and to see pokedex by search pokemon name or id.
 
-if you want to use this web you can clone my repository by github 
+if you want to use this web you can clone my repository by github
+
 ```bash
 git https://github.com/RevoU-FSSE-4/milestone-2-LightKazuto.git
 ```
-after you clone that repository. change directory to " mlstn2 " and then run " npm start " or you guys can visit this link for live web 
+
+after you clone that repository. change directory to " mlstn2 " and then run " npm start " or you guys can visit this link for live web  
+["PokemonApp"](https://6634d1aa90414712b4cc3d50--tiny-rugelach-572aef.netlify.app/)
 
 this web build using react ts.
