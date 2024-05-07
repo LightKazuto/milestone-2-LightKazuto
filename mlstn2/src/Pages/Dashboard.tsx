@@ -13,8 +13,8 @@ function DahsboardComponent() {
         backgroundRepeat: "no-repeat",
       }}>
       <div className="flex justify-center h-screen">
-          <PokeNavigasi />
-          <HomeComponent />
+        <PokeNavigasi PokeDex="/PokeDex" Home="/Dashboard" Games="/Games" />
+        <HomeComponent />
       </div>
     </div>
   );
