@@ -13,6 +13,6 @@ git https://github.com/RevoU-FSSE-4/milestone-2-LightKazuto.git
 ```
 
 after you clone that repository. change directory to " mlstn2 " and then run " npm start " or you guys can visit this link for live web  
-["PokemonApp"](https://6634d1aa90414712b4cc3d50--tiny-rugelach-572aef.netlify.app/)
+["PokemonApp"](https://663a1c3313f83415f7d04f79--wondrous-valkyrie-b41b55.netlify.app/)
 
 this web build using react ts.
