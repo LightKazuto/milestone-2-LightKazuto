@@ -1,4 +1,3 @@
-import { useState } from "react";
 import pngegg from "../Asset/pngegg.png";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -18,8 +17,16 @@ export default function PokeLogin() {
   });
 
   const handleLogin = async (values: { email: string; password: string }) => {
+    const { email, password } = values; // Destructure values for easier access
+
+    // Check if the password is "admin"
+    if (password !== "admin") {
+      alert("Login failed: Incorrect password");
+      return;
+    }
+
     try {
-        const response = await fetch(
+      const response = await fetch(
         "https://library-crud-sample.vercel.app/api/user/login",
         {
           method: "POST",
@@ -30,15 +37,11 @@ export default function PokeLogin() {
         }
       );
 
-      if (!response.ok) {
-        throw new Error("Login failed");
-      }
-
       const result = await response.json();
-      console.log('response success', result)
-      alert('Login success')
-      localStorage.setItem('token', result.token)
-      navigate('/Dashboard')
+      console.log('response success', result);
+      alert('Login success');
+      localStorage.setItem('token', result.token);
+      navigate('/Dashboard');
     } catch (error) {
       alert(error);
     }

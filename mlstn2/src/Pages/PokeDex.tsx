@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import PokeNavigasi from "../Component/NavigasiComponent";
 import background from "../Asset/background.jpg";
@@ -115,13 +115,15 @@ function PokedexComponent() {
       <div className="overflow-y-auto flex gap-5 ">
         <div className="bg-white h-full ">
           <div className="flex flex-col fixed">
+            <h3 className="pt-44 text-2xl font-bold">Insert Pokemon Name or ID</h3>
             <Formik
               initialValues={{ pokemonName: "" }}
               onSubmit={(values, { setSubmitting }) => {
                 getPokemonDataByName(values.pokemonName);
                 setSubmitting(false);
               }}>
-              <Form className="h-full max-h-96 pt-44 ">
+                
+              <Form className="h-full max-h-96 ">
                 <Field
                   type="text"
                   name="pokemonName"

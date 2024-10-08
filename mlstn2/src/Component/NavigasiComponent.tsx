@@ -2,7 +2,6 @@ import logoPika from "../Asset/logoPika.png";
 import arrow from "../Asset/arrow.png";
 import logoPokeball from "../Asset/logoPokeball.png";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 interface PokeNavigasiProps {
   PokeDex: string;
@@ -58,7 +57,7 @@ export default function PokeNavigasi(props: PokeNavigasiProps) {
   return (
     <nav className=" top-10 fixed w-2/4 px-5 shadow-xl border border-black-700 border-2 rounded-xl bg-white">
       <div className="flex justify-center">
-        <ul className="flex gap-20 justify-center ">
+        <ul className="flex gap-20 justify-center flex-reverse">
           <li
             onClick={toHome}
             className="flex flex-col items-center justify-center w-28 border-b-8 border-gray-500 hover:bg-gray-500 transition duration-300 ease-in-out group cursor-pointer 0">

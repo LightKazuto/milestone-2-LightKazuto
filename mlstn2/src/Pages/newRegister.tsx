@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
@@ -42,13 +41,16 @@ export default function PokeNewRegister() {
     );
     const result = await response.json();
 
+    const { email, password } = values;
     try {
-      if (!response.ok) {
-        alert("Register Failed");
-      } else {
+      if (email && password === "12345678") {
+        localStorage.setItem("name", email);
+        localStorage.setItem("password", password);
         console.log("Resister Success", result);
         alert("Register Success");
         navigate("/");
+      } else {
+        alert("Register Failed");
       }
     } catch (error) {
       alert(error);
