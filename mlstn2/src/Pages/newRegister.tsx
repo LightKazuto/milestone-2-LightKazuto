@@ -93,7 +93,7 @@ export default function PokeNewRegister() {
                 name="name"
                 type="text"
                 placeholder="Use this info bellow for login "
-                className="border border-gray-300 p-2 mb-5 rounded-md w-80"
+                className="border border-gray-300 p-2 mb-5 rounded-md w-80 block"
               />
               <ErrorMessage name="name" component="div" />
 
@@ -101,7 +101,7 @@ export default function PokeNewRegister() {
                 name="email"
                 type="email"
                 placeholder="write freely the username"
-                className="border border-gray-300 p-2 mb-5 rounded-md w-80"
+                className="border border-gray-300 p-2 mb-5 rounded-md w-80 block"
               />
               <ErrorMessage name="email" component="div" />
 
@@ -109,7 +109,7 @@ export default function PokeNewRegister() {
                 name="password"
                 type="password"
                 placeholder="Use admin as password"
-                className="border border-gray-300 p-2 mb-5 rounded-md w-80"
+                className="border border-gray-300 p-2 mb-5 rounded-md w-80 block"
               />
               <ErrorMessage name="password" component="div" />
               <button
